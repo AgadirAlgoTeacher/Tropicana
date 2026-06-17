@@ -1,7 +1,12 @@
 /* ================================
    Global Styles
 ================================ */
-
+*{
+   margin: 0px;
+}
+.viewpoint{
+   background-color: #FFD1D5;
+}
 
 /* ================================
    Navigation
@@ -36,3 +41,117 @@
 /* ================================
    Responsive / Media Queries
 ================================ */
+
+
+/* header */
+.header{
+   text-align: center;
+   padding: 20px;
+   background-color: #f7ebec;
+}
+.NavBar{
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+}
+.logo{
+   display: flex;
+   flex-direction: start;
+   height: 150px;
+   position: relative;
+   bottom: 65px;
+}
+.Bar{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   margin-top: 10px;
+}
+.nav_hl{
+   text-decoration: none;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-weight: 800;
+   color: #a58e63;
+   text-shadow: #a58e63 0px 0px 15px;
+}
+
+/* Hero Section */
+.hero{
+   /* background-size: 100vh; */
+   width: 100%;
+   margin-top: -110px;
+   margin-bottom: 30px;
+}
+
+/* Featured Products */
+.productsee{
+   display: flex;
+   justify-content: space-between;
+}
+.products{
+   color: #a58e63;
+   text-shadow: #a58e63 0px 0px 25px;
+   margin-left: 30px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.see{
+   padding: 10px;
+   border: 2px solid #a58e63;
+   border-radius: 10px;
+   box-shadow: rgba(13, 3, 99, 0) 0px 0px 0px;
+   transition: padding 0.5s ease, box-shadow 0.5s ease;
+   background-color: #a58e63;
+   margin: 20px;
+}
+.see:hover{
+   padding-left: 12px;
+   padding-right: 12px;
+   box-shadow: #a58e63 0px 0px 10px;    
+}
+.seetxt{
+   text-decoration: none;
+   color: #FFD1D5;
+   text-shadow: #FFD1D5 0px 0px 15px;
+   font-weight: 600;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.products_box{
+   width: 100%;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   gap: 20px;
+}
+.product_box{
+   text-align: center;
+   background-color: #a58e63;
+   border-radius: 25px;
+   margin: 30px;
+   padding: 20px;
+   transition: padding 0.5s ease, box-shadow 0.5s ease;
+}
+.product_box:hover{
+   padding: 30px;
+   box-shadow: #a58e63 0px 0px 25px;
+}
+.product_img{
+   width: 200px;
+}
+.brand_name{
+   color: #FFD1D5;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   text-shadow: #FFD1D5 0px 0px 15px;
+}
+.category{
+   color: #FFD1D5;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   text-shadow: #FFD1D5 0px 0px 15px;
+}
+
+/* Footer */
+.footer{
+   background-color: #a58e63;
+   padding: 30px;
+   text-align: center;
+}
+.footer_txt{
+   color: #FFD1D5;
+   text-shadow: #FFD1D5 0px 0px 30px;
+}

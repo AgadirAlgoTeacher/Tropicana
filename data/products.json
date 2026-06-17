@@ -5,6 +5,16 @@
     "price": 0.00,
     "category": "category",
     "description": "Product description goes here.",
-    "image": "images/products/placeholder.jpg"
+    "image": "images/products/placeholder.jpg",
+    "stock": 100
+  },
+  {
+    "id": 2,
+    "name": "Product Name",
+    "price": 0.00,
+    "category": "category",
+    "description": "Product description goes here.",
+    "image": "images/products/placeholder.jpg",
+    "stock": 100
   }
 ]
