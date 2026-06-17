@@ -1,45 +1,20 @@
 [
   {
     "id": 1,
-    "name": "cheer touch",
-    "price": 13.99,
-    "category": "sunscreen lotion",
-    "description": "Stay protected under the sun with our daily-use lotion. Perfect for the beach, sports, or backyard fun. Its fast-absorbing, lightweight formula provides high-performance defense without clogging your pores.",
-    "image": "images/products/placeholder.jpg"
+    "name": "Product Name",
+    "price": 0.00,
+    "category": "category",
+    "description": "Product description goes here.",
+    "image": "images/products/placeholder.jpg",
+    "stock": 100
   },
   {
     "id": 2,
-    "name": "tropicana blush",
-    "price": 19.95,
-    "category": "cream stick blush",
-    "shade" : "tropicana coral",
-    "description" : "Get a fresh, effortless pop of color with our creamy, buildable blush stick that melts seamlessly into the skin for a natural, dewy finish.",
-    "image": "images/products/placeholder.jpg"
-  },
-  {
-    "id": 3,
-    "name": "tropicana bronzer",
-    "price": 19.95,
-    "category": "tinte moisture stick",
-    "shade" : "Warm Honey",
-    "description" : "Add a healthy splash of hydration and a natural wash of color to your skin with our multi-use Tinted Moisture Stick.",
-    "image": "images/products/placeholder.jpg"
-  },
-  {
-    "id": 4,
-    "name": "tropicana lip balm",
-    "price": 8.50,
-    "category": "lip balm",
-    "shade" : "Peach Fuzz",
-    "description" : "Deeply hydrate and nourish your lips with this conditioning balm that locks in moisture for a soft, smooth finish. ",
-    "image": "images/products/placeholder.jpg"
-  },
-  {
-    "id": 5,
-    "name": "tropicana sunscreen",
-    "price": 19.95,
-    "category": "sunscreen",
-    "description" : "Protect and nourish your skin daily with our high-performance SPF 50+ sunscreen that shields against intense UV rays without leaving a heavy or greasy residue. This fast-absorbing, invisible formula locks in moisture and provides advanced defense, making it your ultimate daily skin shield.",
-    "image": "images/products/placeholder.jpg"
+    "name": "Product Name",
+    "price": 0.00,
+    "category": "category",
+    "description": "Product description goes here.",
+    "image": "images/products/placeholder.jpg",
+    "stock": 100
   }
 ]
