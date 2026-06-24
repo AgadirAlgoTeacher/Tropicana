@@ -1,22 +1,391 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products — Tropicana</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TROPICANA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #FFF9F2; 
+            color: #4A2711; 
+            padding: 20px;
+        }
+
+       
+        header {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            background: linear-gradient(135deg, #d56c54 0%, #ffc55a 100%); 
+            padding: 60px 20px;
+            border-radius: 24px;
+            color: #FFF;
+            box-shadow: 0 10px 30px rgba(255, 107, 74, 0.15);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        /* --- Layout Grid --- */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+        }
+
+        /* --- Warm Sunkissed Filters --- */
+        .filter-sidebar {
+            background-color: #FFFFFF;
+            border: 2px solid #FFE6D5;
+            border-radius: 20px;
+            padding: 24px;
+            height: fit-content;
+        }
+
+        .filter-section {
+            margin-bottom: 24px;
+        }
+
+        .filter-section h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+            color: #FF6B4A; /* Vibrant coral highlight */
+            font-weight: 700;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-group label {
+            font-size: 0.95rem;
+            color: #5C3A21;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-group input[type="checkbox"] {
+            accent-color: #FF6B4A;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        /* --- Products Column Controls --- */
+        .products-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .product-count {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #7D5C45;
+        }
+
+        .sort-select {
+            padding: 8px 16px;
+            border: 2px solid #FFE6D5;
+            border-radius: 12px;
+            background-color: #fff;
+            color: #4A2711;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* --- Product Catalog Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background-color: #FFFFFF;
+            border: 2px solid #FFE6D5;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(255, 168, 74, 0.1);
+        }
+
+        /* Color blocks capturing distinct golden-hour gradients instead of gray boxes */
+        .product-image {
+            width: 100%;
+            height: 240px;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .img-oil { background: linear-gradient(180deg, #FFE1B5 0%, #FFB574 100%); color: #A05206; }
+        .img-blush { background: linear-gradient(180deg, #FFC4BC 0%, #FF8574 100%); color: #9E2614; }
+        .img-balm { background: linear-gradient(180deg, #FFEAA7 0%, #FFCC00 100%); color: #806600; }
+        .img-mist { background: linear-gradient(180deg, #E0F7FA 0%, #80DEEA 100%); color: #006064; }
+
+        .product-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: #4A2711;
+            font-weight: 700;
+        }
+
+        .product-price {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #FF6B4A;
+            margin-bottom: 14px;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            background-color: #FFF0E6;
+            padding: 4px 10px;
+            color: #FF6B4A;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Summer Splash Action Buttons --- */
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary {
+            background-color: #FFF;
+            color: #4A2711;
+            border: 2px solid #FFE6D5;
+        }
+
+        .btn-secondary:hover {
+            background-color: #FFF0E6;
+            border-color: #FFB574;
+        }
+
+        .btn-primary {
+            background-color: #4A2711;
+            color: #FFF;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF6B4A;
+            box-shadow: 0 4px 12px rgba(255, 107, 74, 0.2);
+        }
+
+        /* --- Screen Adaptations --- */
+        @media (max-width: 768px) {
+            .page-container {
+                grid-template-columns: 1fr;
+            }
+            .filter-sidebar {
+                display: none; 
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+    <header>
+        <h1>TROPICANA Beauty</h1>
+        <p>Your Golden Hour Glow, Bottled. Clean, Vegan, and Melt-Proof.</p>
+    </header>
 
-  <!-- Product Filters -->
+    <div class="page-container">
+        
+        <!-- Left Filter Panel -->
+        <aside class="filter-sidebar">
+            <div class="filter-section">
+                <h3>Vibe & Finish</h3>
+                <div class="filter-group">
+                    <label><input type="checkbox"> Dewy Shimmer</label>
+                    <label><input type="checkbox"> Sun-baked Matte</label>
+                    <label><input type="checkbox"> Glossy Glaze</label>
+                    <label><input type="checkbox"> Sheer Wash</label>
+                </div>
+            </div>
 
-  <!-- Product Grid -->
+            <div class="filter-section">
+                <h3>The Menu</h3>
+                <div class="filter-group">
+                    <label><input type="checkbox"> Lip Juices</label>
+                    <label><input type="checkbox"> Cheek Jellies</label>
+                    <label><input type="checkbox"> Solar Bronzers</label>
+                    <label><input type="checkbox"> Hydration Mists</label>
+                </div>
+            </div>
 
-  <!-- Footer -->
+            <div class="filter-section">
+                <h3>Sun Defense</h3>
+                <div class="filter-group">
+                    <label><input type="checkbox"> SPF 30+</label>
+                    <label><input type="checkbox"> SPF 50+</label>
+                    <label><input type="checkbox"> After-Sun Care</label>
+                </div>
+            </div>
+        </aside>
 
-  <script src="js/main.js"></script>
-  <script src="js/products.js"></script>
+        <!-- Right Products Column -->
+        <main class="products-column">
+            
+            <div class="top-bar">
+                <span class="product-count">4 Limited-Drop Items</span>
+                <div>
+                    <select class="sort-select">
+                        <option>Sort: Trending Now</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-image img-oil">☀️ Bronzing Oil</div>
+                        <h4>Coconut Body Glaze</h4>
+                        <div class="product-price">$36.00</div>
+                        <div class="product-tags">
+                            <span class="tag">High-Shine</span>
+                            <span class="tag">SPF 30</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary">Details</button>
+                        <button class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-image img-blush">🍑 Cheek Jelly</div>
+                        <h4>Island Flush Blush Cream</h4>
+                        <div class="product-price">$28.00</div>
+                        <div class="product-tags">
+                            <span class="tag">Dewy</span>
+                            <span class="tag">Melt-Proof</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary">Details</button>
+                        <button class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-image img-balm">🍍 Lip Juice</div>
+                        <h4>Citrus Nectar Lip Balm</h4>
+                        <div class="product-price">$18.00</div>
+                        <div class="product-tags">
+                            <span class="tag">Glossy</span>
+                            <span class="tag">Vitamin E</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary">Details</button>
+                        <button class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-image img-mist">🏝️ Face Mist</div>
+                        <h4>Sea Glass Hydration Spritz</h4>
+                        <div class="product-price">$24.00</div>
+                        <div class="product-tags">
+                            <span class="tag">Cooling</span>
+                            <span class="tag">Aloe Infused</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary">Details</button>
+                        <button class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
 </body>
 </html>
