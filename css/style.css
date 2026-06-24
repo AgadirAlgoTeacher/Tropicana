@@ -5,19 +5,9 @@
    margin: 0px;
 }
 .viewpoint{
-   background-color: rgb(227, 251, 255);
+   background-color: rgb(202, 247, 255);
 }
-.footer{
-   background-color: #ffde96;
-   padding: 30px;
-   text-align: center;
-   position: relative;
-   bottom: 0px;
-}
-.footer_txt{
-   color: #62C4DA;
-   text-shadow: #62C4DA 0px 0px 30px;
-}
+
 
 /* ================================
    Navigation
@@ -51,23 +41,61 @@
    color: #62C4DA;
    text-shadow: #62C4DA 0px 0px 15px;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 /* ================================
    Hero Section
 ================================ */
+.heroes{
+   display: grid;
+   grid-auto-flow: column;
+   grid-auto-columns: 100%;
+}
 .hero{
    width: 100%;
    margin-top: -110px;
    margin-bottom: 30px;
 }
-
+.heroestrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.hero_arrow {
+  border-radius: 50%;
+  padding: 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  position: absolute;
+  top: 50%;
+  color: #ffffff;
+  z-index: 30;
+  transition: background-color 0.3s ease;
+  font-size: 30px;
+}
+.hero_arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.next{
+   right: 3%;
+}
+.prev{
+   left: 3%;
+}
 /* ================================
    Product Cards
 ================================ */
 .productsee{
    display: flex;
-   justify-content: space-between;
-   align-items: center;
-   
+   justify-content: center;
 }
 .products{
    color: #62C4DA;
@@ -77,19 +105,16 @@
 }
 .see{
    padding: 10px;
-   border: 2px solid #c93638;
    border-radius: 10px;
    box-shadow: rgba(13, 3, 99, 0) 0px 0px 0px;
    transition: padding 0.5s ease, box-shadow 0.5s ease;
-   background-color: #c93638;
+   background-color: #c94648;
    margin: 20px;
-   position: relative;
-   left: 50%;
 }
 .see:hover{
    padding-left: 12px;
    padding-right: 12px;
-   box-shadow: #c93638 0px 0px 10px;    
+   box-shadow: #c94648 0px 0px 10px;    
 }
 .seetxt{
    text-decoration: none;
@@ -99,14 +124,20 @@
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .products_box{
-   width: 100%;
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-auto-flow: column;
    gap: 20px;
+   overflow-x: auto;
+   overflow-y: hidden;
+   scroll-snap-type: mandatory;
+   scrollbar-color: #ffde96;
+   scrollbar-shadow-color: #ffde96;
+   scrollbar-width: thin;
 }
 .product_box{
+   scroll-snap-align: start;
    text-align: center;
-   background-color: #c93638;
+   background-color: #c94648;
    border-radius: 25px;
    margin: 30px;
    padding: 20px;
@@ -114,7 +145,7 @@
 }
 .product_box:hover{
    padding: 30px;
-   box-shadow: #c93638 0px 0px 25px;
+   box-shadow: #c94648 0px 0px 25px;
 }
 .product_img{
    width: 200px;
@@ -143,7 +174,17 @@
 /* ================================
    Footer
 ================================ */
-
+.footer{
+   background-color: #ffde96;
+   padding: 30px;
+   text-align: center;
+   position: relative;
+   bottom: 0px;
+}
+.footer_txt{
+   color: #62C4DA;
+   text-shadow: #62C4DA 0px 0px 30px;
+}
 
 /* ================================
    Responsive / Media Queries
