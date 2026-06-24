@@ -25,3 +25,4 @@
 // Helper function: given a param name, return its value from the URL.
 // Useful on products.html to read ?search= or ?category=
 // e.g. getParam("category") → "skincare"
+
