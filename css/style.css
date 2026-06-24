@@ -59,6 +59,7 @@ position: relative;
    width: 100%;
    max-height: 500px;     
    object-fit: cover;
+   flex: 0 0 100%;
 }
 .heroestrack {
   display: flex;
