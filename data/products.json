@@ -11,7 +11,7 @@
   {
     "id": 2,
     "name": "Product Name",
-    "price": 0.00,
+    "price": 300,
     "category": "category",
     "description": "Product description goes here.",
     "image": "images/products/placeholder.jpg",
